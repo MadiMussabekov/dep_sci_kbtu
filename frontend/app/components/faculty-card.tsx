@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-interface FacultyCardParams {
+export interface FacultyCardParams {
   imageUrl: string;
   facultyName: string;
   facultyDesc: string;

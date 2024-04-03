@@ -1,10 +1,21 @@
 import Image from "next/image";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import FacultyCard from "./components/faculty-card";
+import FacultyCard, { FacultyCardParams } from "./components/faculty-card";
+import CardCarousel from "./components/carousel-card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+interface CardCarouselProps {
+  facultyInfo: FacultyCardParams[];
+}
 
 export default function Home() {
-  let facultyInfo = [
+  let facultyInfo: FacultyCardParams[] = [
     {
       imageUrl: "/img/card-photo.png",
       facultyName: "ИТ",
@@ -17,15 +28,22 @@ export default function Home() {
     },
   ];
   return (
-    <div>
-      <p>Hello</p>
+    <div className="flex justify-center">
       {/* <Navbar></Navbar>
       <Footer></Footer> */}
-      <div className="flex items-center">
-        {facultyInfo.map((faculty, index) => (
-          <FacultyCard key={index} {...faculty}></FacultyCard>
-        ))}
-      </div>
+      {/* <CardCarousel facultyInfo={facultyInfo} /> */}
+      {/* <Accordion
+        type="single"
+        collapsible
+        className="max-w-[1180px] w-full m-6"
+      >
+        <AccordionItem value="item-1">
+          <AccordionTrigger>
+            Можно ли вместе в вами в партнерстве разработать проект?
+          </AccordionTrigger>
+          <AccordionContent>Да</AccordionContent>
+        </AccordionItem>
+      </Accordion> */}
     </div>
   );
 }
