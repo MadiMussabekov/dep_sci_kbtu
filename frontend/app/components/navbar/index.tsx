@@ -87,13 +87,26 @@ export default function Navbar() {
             </button>
           </div>
         </form>
-        <div className={`${styles.navbar__elements}`}>
-        <div className={pathname === "/" ? `${styles.highlighted}` : ``}><p>О НАУКЕ</p></div>
-          <div><p>ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ</p></div>
-          <div><p>ИНСТИТУТЫ</p></div>
-          <div><p>ЦЕНТРЫ И ЛАБОРАТОРИИ</p></div>
-          <div><p>ОБОРУДОВАНИЯ</p></div>
-          <div><p>ВЕСТНИК</p></div>
+        <div className="flex flex-wrap items-center justify-center gap-4 w-full bg-white text-black">
+          {/* Using `md:` prefix to apply styles for medium screens and up */}
+          <div className={pathname === "/" ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center" : "p-2"}>
+            <p className="text-sm cursor-pointer">О НАУКЕ</p>
+          </div>
+          <div className="p-2">
+            <p className="text-sm cursor-pointer">ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ</p>
+          </div>
+          <div className="p-2">
+            <p className="text-sm cursor-pointer">ИНСТИТУТЫ</p>
+          </div>
+          <div className="p-2">
+            <p className="text-sm cursor-pointer">ЦЕНТРЫ И ЛАБОРАТОРИИ</p>
+          </div>
+          <div className="p-2">
+            <p className="text-sm cursor-pointer">ОБОРУДОВАНИЯ</p>
+          </div>
+          <div className="p-2">
+            <p className="text-sm cursor-pointer">ВЕСТНИК</p>
+          </div>
         </div>
       </div>
     </nav>
