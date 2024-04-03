@@ -1,12 +1,9 @@
+import type { Metadata } from "next";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { cn } from "@/lib/utils";
 import Navbar from "./components/navbar";
-
-
-// import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
-
-// import { cn } from "@/lib/utils";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -24,10 +21,11 @@ export default function RootLayout({
 
   
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+    <>
+      <Navbar />
+      <main className={cn("min-h-screen bg-background font-sans antialiased")}>
         {children}
-      </body>
-    </html>
+      </main>
+    </>
   );
 }
