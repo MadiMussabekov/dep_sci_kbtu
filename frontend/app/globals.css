@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Important constants*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main{
+  width: 90%;
+  margin: 0 auto;
+}
+
+
 @layer base {
   :root {
     --background-color-blue: #00357d;
