@@ -1,14 +1,12 @@
 import React from "react";
 
-import { FacultyCardParams } from "./faculty-card";
 import FacultyCard from "./faculty-card";
 
 import Image from "next/image";
 
-interface CardCarouselProps {
-  facultyInfo: FacultyCardParams[];
-}
-const CardCarousel: React.FC<CardCarouselProps> = ({ facultyInfo }) => {
+import { FacultyCardCarouselParams } from "@/app/interfaces/Card/facultyCardParams.interface";
+
+const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
   return (
     <div className="w-full flex flex-col flex-wrap ">
       {/* <div className="bg-[--background-color-blue] flex flex-wrap mb-[40px] items-center w-full h-[220px]">

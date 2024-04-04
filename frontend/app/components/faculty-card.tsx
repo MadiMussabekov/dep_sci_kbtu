@@ -1,11 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-export interface FacultyCardParams {
-  imageUrl: string;
-  facultyName: string;
-  facultyDesc: string;
-}
+import { FacultyCardParams } from "../interfaces/Card/facultyCardParams.interface";
 
 export default function FacultyCard({
   imageUrl,

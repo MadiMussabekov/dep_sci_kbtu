@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -28,6 +28,7 @@ export default function Navbar({ locale:initialLocale}: { locale: string}) {
     setLanguage(initialLocale);
   },[initialLocale]);
 
+
   return (
     <nav className="flex flex-col items-center justify-center w-full h-40 shadow">
       <div className={styles.nav__top}>
@@ -36,7 +37,6 @@ export default function Navbar({ locale:initialLocale}: { locale: string}) {
           alt=""
           width={150}
           height={150}
-
         />
         <div className={styles.switcher_container}>
           <select value={language} onChange={(e) => handleLanguageChange(e.target.value)}>
@@ -65,7 +65,8 @@ export default function Navbar({ locale:initialLocale}: { locale: string}) {
                   src="/search_icon_white.svg"
                   alt="Search"
                   width={20}
-                  height={20} />
+                  height={20}
+                />
               </div>
             </button>
           </div>
