@@ -1,0 +1,18 @@
+{
+  "Navbar": {
+    "projects": "ЖОБАЛАР",
+    "scientific_advice": "ҒЫЛЫМИ КЕҢЕСТЕР",
+    "phd_defence": "PhD ҚОРҒАУ",
+    "scientists": "ҒАЛЫМДАР",
+    "scientist_profile": "ҒАЛЫМ ПРОФИЛІ",
+    "business_incubator": "БИЗНЕС-ИНКУБАТОР",
+    "reg/auto": "ТІРКЕЛУ/АВТОМАТТАНДЫРУ",
+    "about_science": "ҒЫЛЫМ ЖАЙЛЫ",
+    "dept_sci_inov": "ҒЫЛЫМ ЖӘНЕ ИННОВАЦИЯЛАР ДЕПАРТАМЕНТІ",
+    "institutions": "ИНСТИТУТТАР",
+    "centers_labs": "ОРТАЛЫҚТАР МЕН ЗЕРТХАНАЛАР",
+    "equipment": "ЖАБДЫҚТАР",
+    "newsletter": "ВЕСТНИК",
+    "search_placeholder": "KBTU / Ғылым / Ғылым жайлы"
+  }
+}
