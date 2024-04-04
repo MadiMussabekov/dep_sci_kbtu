@@ -21,57 +21,80 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
     );
   };
 
+  const testClick = (event: MouseEvent) => {
+    console.log("test");
+  };
+
   return (
-    <div className="overflow-hidden relative w-[580px] h-[380px]">
+    <div className="overflow-hidden relative w-[580px] h-[380px] flex flex-col">
       <div
-        // BROKEN SOMEWHERE HERE
-        className="flex transition-transform ease-out duration-300 w-full h-full"
+        className="flex transition-transform ease-out duration-300 h-full"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {videoInfo.map((video, ind) => (
           <div
             key={ind}
-            className={`w-full min-w-[580px]`}
-            style={{ display: ind === currentSlide ? "block" : "none" }}
+            className="flex-shrink-0 w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${video.videoImagePreview})`,
+            }}
           >
-            <Image
-              src={`${video.videoImagePreview}`}
-              alt="video preview image"
-              fill
-            />
-            <h1 className="relative font-bold text-black/30 text-[24px] top-0 left-0 max-w-[156px] z-10">
+            <h1 className="relative font-bold text-black/30 text-[24px] top-0 left-0 max-w-[156px]">
               {video.videoTitle}
             </h1>
-            <button className="block mx-auto mt-auto z-10">
-              <Image
-                src="/svg/video-play-btn.svg"
-                alt="play button"
-                width={100}
-                height={100}
-              />
-            </button>
+
+            <div className="flex items-center justify-center">
+              <button type="button" onClick={testClick}>
+                <Image
+                  src="/svg/video-play-btn.svg"
+                  alt="play button"
+                  width={100}
+                  height={100}
+                />
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="absolute top-0 h-full w-full justify-between items-center flex px-10">
-        <button type="button" onClick={previousSlide}>
-          <Image
-            src="/svg/arrow-left.svg"
-            alt="arrow pointing to left"
-            width={40}
-            height={32}
-          />
-        </button>
+      {/* <div className="absolute top-0 h-full w-full justify-between items-center flex px-10">
+        
+      </div> */}
 
-        <button type="button" onClick={nextSlide}>
-          <Image
-            src="/svg/arrow-right.svg"
-            alt="arrow pointing to right"
-            width={40}
-            height={32}
-          />
-        </button>
+      <div className="bg-[--background-color-yellow] ">
+        <div className="flex justify-between items-center mx-5 p-2">
+          <button type="button" onClick={previousSlide}>
+            <Image
+              src="/svg/arrow-left.svg"
+              alt="arrow pointing to left"
+              width={30}
+              height={22}
+            />
+          </button>
+
+          <div className="flex gap-5">
+            {videoInfo.map((video, ind) => (
+              <div
+                key={ind}
+                className={`bg-white rounded-full w-5 h-5 ${
+                  currentSlide === ind ? "bg-transparent" : ""
+                }`}
+                style={{
+                  border: currentSlide === ind ? "1px solid white" : "",
+                }}
+              ></div>
+            ))}
+          </div>
+
+          <button type="button" onClick={nextSlide}>
+            <Image
+              src="/svg/arrow-right.svg"
+              alt="arrow pointing to right"
+              width={30}
+              height={22}
+            />
+          </button>
+        </div>
       </div>
     </div>
   );
