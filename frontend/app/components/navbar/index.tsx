@@ -1,14 +1,12 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import React from "react";
-import styles from './style.module.css';
-import { usePathname } from 'next/navigation'
+import styles from "./style.module.css";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const pathname = usePathname()
-
-
+  const pathname = usePathname();
 
   return (
     // <nav className="flex items-center justify-between flex-wrap bg-[color:var(--background-color-blue)] p-6">
@@ -53,7 +51,6 @@ export default function Navbar() {
           alt=""
           width={150}
           height={150}
-
         />
         <div className={styles.switcher_container}>
           <select>
@@ -75,25 +72,40 @@ export default function Navbar() {
       <div className={styles.nav__bottom}>
         <form className={styles.search_bar} action="/search" method="GET">
           <div className={styles.search_bar_inside}>
-            <input type="text" name="query" id="search-query" placeholder="KBTU / Наука / О науке" aria-label="Search" />
+            <input
+              type="text"
+              name="query"
+              id="search-query"
+              placeholder="KBTU / Наука / О науке"
+              aria-label="Search"
+            />
             <button type="submit" aria-label="Submit Search">
               <div className={styles.search_icon_container}>
                 <Image
                   src="/search_icon_white.svg"
                   alt="Search"
                   width={20}
-                  height={20} />
+                  height={20}
+                />
               </div>
             </button>
           </div>
         </form>
         <div className="flex flex-wrap items-center justify-center gap-4 w-full bg-white text-black">
           {/* Using `md:` prefix to apply styles for medium screens and up */}
-          <div className={pathname === "/" ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center" : "p-2"}>
+          <div
+            className={
+              pathname === "/"
+                ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center"
+                : "p-2"
+            }
+          >
             <p className="text-sm cursor-pointer">О НАУКЕ</p>
           </div>
           <div className="p-2">
-            <p className="text-sm cursor-pointer">ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ</p>
+            <p className="text-sm cursor-pointer">
+              ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ
+            </p>
           </div>
           <div className="p-2">
             <p className="text-sm cursor-pointer">ИНСТИТУТЫ</p>

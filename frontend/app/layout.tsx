@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -16,16 +17,18 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) 
-{
-
-  
+}>) {
   return (
-    <>
-      <Navbar />
-      <main className={cn("min-h-screen bg-background font-sans antialiased")}>
-        {children}
-      </main>
-    </>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Navbar />
+        <main
+          className={cn("min-h-screen bg-background font-sans antialiased")}
+        >
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
   );
 }
