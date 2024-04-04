@@ -19,12 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
-      <Navbar />
-      <main className={cn("min-h-screen bg-background font-sans antialiased")}>
-        {children}
-      </main>
-      <Footer />
-    </>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Navbar />
+        <main
+          className={cn("min-h-screen bg-background font-sans antialiased")}
+        >
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
   );
 }
