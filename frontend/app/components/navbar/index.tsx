@@ -1,49 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
-import styles from "./style.module.css";
-import { usePathname } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import styles from './style.module.css';
+import {createSharedPathnamesNavigation} from 'next-intl/navigation';
+import { useTranslations } from 'next-intl';
 
-export default function Navbar() {
-  const pathname = usePathname();
+export default function Navbar({ locale:initialLocale}: { locale: string}) {
+  const [language, setLanguage] = useState(initialLocale);
+
+  const locales = ['en','kk','ru'] as const;
+  const {useRouter,usePathname} = createSharedPathnamesNavigation({locales})
+
+  const pathname = usePathname()
+  const router = useRouter();
+  const t = useTranslations("Navbar");
+
+  const handleLanguageChange = (newLocale:string) => {
+    // Change it for UI
+    setLanguage(newLocale);
+    // Replace the URL with the new locale without changing the pathname
+    router.replace(pathname, {locale: newLocale})
+  }
+  
+  useEffect(() => {
+    // Sync the `language` state whenever the `locale` prop changes
+    setLanguage(initialLocale);
+  },[initialLocale]);
+
 
   return (
-    // <nav className="flex items-center justify-between flex-wrap bg-[color:var(--background-color-blue)] p-6">
-    //   <div className="flex items-center flex-shrink-0 text-white mr-6">
-    //     <Image
-    //       src="https://kbtu.edu.kz/images/logoWh.svg"
-    //       alt=""
-    //       width={200}
-    //       height={200}
-    //     />
-    //   </div>
-    //   <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    //     <div className="text-sm lg:flex-grow">
-    //       <a
-    //         href="#projects"
-    //         className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-200 mr-4"
-    //       >
-    //         Проекты
-    //       </a>
-    //       <a
-    //         href="#councils"
-    //         className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-blue-200 mr-4"
-    //       >
-    //         Научные советы
-    //       </a>
-    //       {/* Repeat for other navigation items */}
-    //     </div>
-    //     <div>
-    //       <a
-    //         href="#search"
-    //         className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-blue-500 hover:bg-white mt-4 lg:mt-0"
-    //       >
-    //         Поиск
-    //       </a>
-    //     </div>
-    //   </div>
-    // </nav>
     <nav className="flex flex-col items-center justify-center w-full h-40 shadow">
       <div className={styles.nav__top}>
         <Image
@@ -53,32 +39,26 @@ export default function Navbar() {
           height={150}
         />
         <div className={styles.switcher_container}>
-          <select>
-            <option>KAZ</option>
-            <option>RUS</option>
-            <option>ENG</option>
+          <select value={language} onChange={(e) => handleLanguageChange(e.target.value)}>
+            <option value="kk">KAZ</option>
+            <option value="ru">RUS</option>
+            <option value="en">ENG</option>
           </select>
         </div>
         <div className={styles.navbar__elements}>
-          <p>ПРОЕКТЫ</p>
-          <p>НАУЧНЫЕ СОВЕТЫ</p>
-          <p>PhD ЗАЩИТА</p>
-          <p>УЧЕНЫЕ</p>
-          <p>ПРОФИЛЬ УЧЕНОГО</p>
-          <p>БИЗНЕС-ИНКУБАТОР</p>
-          <p>РЕГИСТРАЦИЯ/АВТОМАТИЗАЦИЯ</p>
+          <p>{t("projects")}</p>
+          <p>{t("scientific_advice")}</p>
+          <p>{t("phd_defence")}</p>
+          <p>{t("scientists")}</p>
+          <p>{t("scientist_profile")}</p>
+          <p>{t("business_incubator")}</p>
+          <p>{t("reg/auto")}</p>
         </div>
       </div>
       <div className={styles.nav__bottom}>
         <form className={styles.search_bar} action="/search" method="GET">
           <div className={styles.search_bar_inside}>
-            <input
-              type="text"
-              name="query"
-              id="search-query"
-              placeholder="KBTU / Наука / О науке"
-              aria-label="Search"
-            />
+            <input type="text" name="query" id="search-query" placeholder={t("search_placeholder")} aria-label="Search" />
             <button type="submit" aria-label="Submit Search">
               <div className={styles.search_icon_container}>
                 <Image
@@ -93,31 +73,24 @@ export default function Navbar() {
         </form>
         <div className="flex flex-wrap items-center justify-center gap-4 w-full bg-white text-black">
           {/* Using `md:` prefix to apply styles for medium screens and up */}
-          <div
-            className={
-              pathname === "/"
-                ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center"
-                : "p-2"
-            }
-          >
-            <p className="text-sm cursor-pointer">О НАУКЕ</p>
+          <div className={pathname && (pathname === '/kk' || pathname === '/ru' || pathname === '/en') ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center" : "p-2"}>
+            <p className="text-sm cursor-pointer">{t("about_science")}</p>
+          </div>
+
+          <div className="p-2">
+            <p className="text-sm cursor-pointer">{t("dept_sci_inov")}</p>
           </div>
           <div className="p-2">
-            <p className="text-sm cursor-pointer">
-              ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ
-            </p>
+            <p className="text-sm cursor-pointer">{t("institutions")}</p>
           </div>
           <div className="p-2">
-            <p className="text-sm cursor-pointer">ИНСТИТУТЫ</p>
+            <p className="text-sm cursor-pointer">{t("centers_labs")}</p>
           </div>
           <div className="p-2">
-            <p className="text-sm cursor-pointer">ЦЕНТРЫ И ЛАБОРАТОРИИ</p>
+            <p className="text-sm cursor-pointer">{t("equipment")}</p>
           </div>
           <div className="p-2">
-            <p className="text-sm cursor-pointer">ОБОРУДОВАНИЯ</p>
-          </div>
-          <div className="p-2">
-            <p className="text-sm cursor-pointer">ВЕСТНИК</p>
+            <p className="text-sm cursor-pointer">{t("newsletter")}</p>
           </div>
         </div>
       </div>

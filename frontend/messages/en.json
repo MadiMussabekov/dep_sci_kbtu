@@ -1,0 +1,18 @@
+{
+  "Navbar": {
+    "projects": "PROJECTS",
+    "scientific_advice": "SCIENTIFIC ADVICE",
+    "phd_defence": "PhD DEFENSE",
+    "scientists": "SCIENTISTS",
+    "scientist_profile": "SCIENTIST PROFILE",
+    "business_incubator": "BUSINESS-INCUBATOR",
+    "reg/auto": "REGISTRATION/AUTOMATION",
+    "about_science": "ABOUT SCIENCE",
+    "dept_sci_inov": "DEPARTMENT OF SCIENCE AND INNOVATION",
+    "institutions": "INSTITUTES",
+    "centers_labs": "CENTERS & LABORATORIES",
+    "equipment": "EQUIPMENT",
+    "newsletter": "BULLETIN",
+    "search_placeholder": "KBTU / Science / About Science"
+  }
+}
