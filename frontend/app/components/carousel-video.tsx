@@ -7,28 +7,24 @@ import { VideoCarouselParams } from "@/app/interfaces/Carousel/videoCarouselPara
 const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
   let [currentSlide, setCurrentSlide] = useState(0);
 
-  const previousSlide = (event: MouseEvent) => {
+  const previousSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? videoInfo.length - 1 : prevSlide - 1
     );
   };
 
-  const nextSlide = (event: MouseEvent) => {
+  const nextSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setCurrentSlide((prevSlide) =>
       prevSlide === videoInfo.length - 1 ? 0 : prevSlide + 1
     );
   };
 
-  const testClick = (event: MouseEvent) => {
-    console.log("test");
-  };
-
   return (
     <div className="overflow-hidden relative w-[580px] h-[380px] flex flex-col">
       <div
-        className="flex transition-transform ease-out duration-300 h-full"
+        className="flex transition-transform ease-out duration-150 h-full"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
       >
         {videoInfo.map((video, ind) => (
@@ -44,7 +40,7 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
             </h1>
 
             <div className="flex items-center justify-center">
-              <button type="button" onClick={testClick}>
+              <button type="button">
                 <Image
                   src="/svg/video-play-btn.svg"
                   alt="play button"
@@ -74,15 +70,22 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
 
           <div className="flex gap-5">
             {videoInfo.map((video, ind) => (
-              <div
+              <button
+                type="button"
                 key={ind}
-                className={`bg-white rounded-full w-5 h-5 ${
-                  currentSlide === ind ? "bg-transparent" : ""
-                }`}
-                style={{
-                  border: currentSlide === ind ? "1px solid white" : "",
+                onClick={() => {
+                  setCurrentSlide(ind);
                 }}
-              ></div>
+              >
+                <div
+                  className={`rounded-full w-5 h-5`}
+                  style={{
+                    border: currentSlide === ind ? "1px solid white" : "",
+                    backgroundColor:
+                      currentSlide === ind ? "transparent" : "white",
+                  }}
+                ></div>
+              </button>
             ))}
           </div>
 
