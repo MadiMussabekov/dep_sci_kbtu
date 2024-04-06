@@ -17,6 +17,7 @@ import {
   VideoCarouselParams,
   VideoParams,
 } from "@/app/interfaces/Carousel/videoCarouselParams.interface";
+import GridCards from "../components/grid_cards";
 
 interface CardCarouselParams {
   facultyInfo: FacultyCardParams[];
@@ -68,6 +69,7 @@ export default function Home() {
   return (
     <>
       <VideoCarousel videoInfo={videoInfo}></VideoCarousel>
+      <GridCards />
     </>
   );
 }
