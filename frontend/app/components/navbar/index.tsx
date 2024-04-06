@@ -2,32 +2,33 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import styles from './style.module.css';
-import {createSharedPathnamesNavigation} from 'next-intl/navigation';
-import { useTranslations } from 'next-intl';
+import styles from "./style.module.css";
+import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import { useTranslations } from "next-intl";
 
-export default function Navbar({ locale:initialLocale}: { locale: string}) {
+export default function Navbar({ locale: initialLocale }: { locale: string }) {
   const [language, setLanguage] = useState(initialLocale);
 
-  const locales = ['en','kk','ru'] as const;
-  const {useRouter,usePathname} = createSharedPathnamesNavigation({locales})
+  const locales = ["en", "kk", "ru"] as const;
+  const { useRouter, usePathname } = createSharedPathnamesNavigation({
+    locales,
+  });
 
-  const pathname = usePathname()
+  const pathname = usePathname();
   const router = useRouter();
   const t = useTranslations("Navbar");
 
-  const handleLanguageChange = (newLocale:string) => {
+  const handleLanguageChange = (newLocale: string) => {
     // Change it for UI
     setLanguage(newLocale);
     // Replace the URL with the new locale without changing the pathname
-    router.replace(pathname, {locale: newLocale})
-  }
-  
+    router.replace(pathname, { locale: newLocale });
+  };
+
   useEffect(() => {
     // Sync the `language` state whenever the `locale` prop changes
     setLanguage(initialLocale);
-  },[initialLocale]);
-
+  }, [initialLocale]);
 
   return (
     <nav className="flex flex-col items-center justify-center w-full h-40 shadow">
@@ -39,7 +40,10 @@ export default function Navbar({ locale:initialLocale}: { locale: string}) {
           height={150}
         />
         <div className={styles.switcher_container}>
-          <select value={language} onChange={(e) => handleLanguageChange(e.target.value)}>
+          <select
+            value={language}
+            onChange={(e) => handleLanguageChange(e.target.value)}
+          >
             <option value="kk">KAZ</option>
             <option value="ru">RUS</option>
             <option value="en">ENG</option>
@@ -58,7 +62,13 @@ export default function Navbar({ locale:initialLocale}: { locale: string}) {
       <div className={styles.nav__bottom}>
         <form className={styles.search_bar} action="/search" method="GET">
           <div className={styles.search_bar_inside}>
-            <input type="text" name="query" id="search-query" placeholder={t("search_placeholder")} aria-label="Search" />
+            <input
+              type="text"
+              name="query"
+              id="search-query"
+              placeholder={t("search_placeholder")}
+              aria-label="Search"
+            />
             <button type="submit" aria-label="Submit Search">
               <div className={styles.search_icon_container}>
                 <Image
@@ -73,7 +83,14 @@ export default function Navbar({ locale:initialLocale}: { locale: string}) {
         </form>
         <div className="flex flex-wrap items-center justify-center gap-4 w-full bg-white text-black">
           {/* Using `md:` prefix to apply styles for medium screens and up */}
-          <div className={pathname && (pathname === '/kk' || pathname === '/ru' || pathname === '/en') ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center" : "p-2"}>
+          <div
+            className={
+              pathname &&
+              (pathname === "/kk" || pathname === "/ru" || pathname === "/en")
+                ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center"
+                : "p-2"
+            }
+          >
             <p className="text-sm cursor-pointer">{t("about_science")}</p>
           </div>
 

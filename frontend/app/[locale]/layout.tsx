@@ -4,10 +4,15 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import Navbar from "@/app/components/navbar";
-import { NextIntlClientProvider, useLocale, useMessages, useTranslations } from "next-intl";
+import {
+  NextIntlClientProvider,
+  useLocale,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 import { notFound } from "next/navigation";
 import pick from "lodash/pick";
-
+import Footer from "../components/footer";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -16,15 +21,13 @@ export const metadata: Metadata = {
   description: "KBTU science descriptio(edit)",
 };
 
-
 export default function RootLayout({
   children,
-  params
+  params,
 }: {
-  children: React.ReactNode,
-  params: any
+  children: React.ReactNode;
+  params: any;
 }) {
-
   const locale = useLocale();
   const t = useTranslations("Navbar");
   const messages = useMessages();
@@ -35,23 +38,21 @@ export default function RootLayout({
     notFound();
   }
 
-
   return (
     <html lang={locale}>
-      <head>
-
-      </head>
+      <head></head>
       <body>
         {/* Wrap it because it can't be turned into server side component */}
-        <NextIntlClientProvider
-        messages={
-          pick(messages,"Navbar")
-        }>
+        <NextIntlClientProvider messages={pick(messages, "Navbar")}>
           <Navbar locale={locale} />
         </NextIntlClientProvider>
-        <main className={cn("min-h-screen bg-background font-sans antialiased")}>
+        <main
+          className={cn("min-h-screen bg-background font-sans antialiased")}
+        >
           {children}
         </main>
+
+        <Footer />
       </body>
     </html>
   );
