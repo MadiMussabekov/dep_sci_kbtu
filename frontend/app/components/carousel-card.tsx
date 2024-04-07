@@ -24,7 +24,7 @@ const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
   };
 
   return (
-    <div className="relative w-full h-[400px] flex flex-col items-center justify-center overflow-hidden">
+    <div className="w-full flex flex-col items-center justify-center overflow-x-hidden gap-10">
       <div
         className="flex transition-transform ease-out duration-150 w-full h-full"
         style={{ transform: `translateX(-${currentSlide * cardWidth * 4}px)` }}
@@ -40,7 +40,7 @@ const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
         ))}
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 bg-[#F3C583] flex justify-between items-center p-2">
+      <div className="w-full h-14 bg-[#F3C583] flex justify-between items-center p-2">
         <button onClick={previousSlide}>
           <Image
             src="/svg/arrow-left.svg"
