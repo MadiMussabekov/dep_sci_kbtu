@@ -50,7 +50,7 @@ const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
           />
         </button>
 
-        <span>{`${currentSlide * 4 + 1}-${Math.min(
+        <span className="text-white">{`${currentSlide * 4 + 1}-${Math.min(
           (currentSlide + 1) * 4,
           facultyInfo.length
         )}/${facultyInfo.length}`}</span>
