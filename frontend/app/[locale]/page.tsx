@@ -11,7 +11,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { FacultyCardParams } from "@/app/interfaces/Card/facultyCardParams.interface";
+import {
+  FacultyCardCarouselParams,
+  FacultyCardParams,
+} from "@/app/interfaces/Card/facultyCardParams.interface";
 import VideoCarousel from "../components/carousel-video";
 import {
   VideoCarouselParams,
@@ -45,31 +48,92 @@ export default function Home() {
       facultyName: "ГОРНОЕ ДЕЛО",
       facultyDesc: "ПЕРЕРАБОТКА ГОРНЫХ ПОРОД, ДОБЫЧА ПОЛЕЗНЫХ ИСКОПАЕМЫХ",
     },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ИТ",
+      facultyDesc: "РАЗРАБОТКА ПО, ИИ, РАБОТОТЕХНИКА, КВАНТОВЫЕ ВЫЧИСЛЕНИЯ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ЭНЕРГЕТИКА",
+      facultyDesc: "ВОЗОБНОВЛЯЕМЫЕ ИСТОЧНИКИ ЭНЕРГИИ, ЯДЕРНАЯ ЭНЕРГИЯ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "МЕТАЛЛУРГИЯ",
+      facultyDesc: "МЕТАЛЛУРГИЧЕСКИЕ ПРОЦЕССЫ, ПЕРЕРАБОТКА, НОВЫЕ МАТЕРИАЛЫ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ГОРНОЕ ДЕЛО",
+      facultyDesc: "ПЕРЕРАБОТКА ГОРНЫХ ПОРОД, ДОБЫЧА ПОЛЕЗНЫХ ИСКОПАЕМЫХ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ИТ",
+      facultyDesc: "РАЗРАБОТКА ПО, ИИ, РАБОТОТЕХНИКА, КВАНТОВЫЕ ВЫЧИСЛЕНИЯ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ЭНЕРГЕТИКА",
+      facultyDesc: "ВОЗОБНОВЛЯЕМЫЕ ИСТОЧНИКИ ЭНЕРГИИ, ЯДЕРНАЯ ЭНЕРГИЯ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "МЕТАЛЛУРГИЯ",
+      facultyDesc: "МЕТАЛЛУРГИЧЕСКИЕ ПРОЦЕССЫ, ПЕРЕРАБОТКА, НОВЫЕ МАТЕРИАЛЫ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ГОРНОЕ ДЕЛО",
+      facultyDesc: "ПЕРЕРАБОТКА ГОРНЫХ ПОРОД, ДОБЫЧА ПОЛЕЗНЫХ ИСКОПАЕМЫХ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ИТ",
+      facultyDesc: "РАЗРАБОТКА ПО, ИИ, РАБОТОТЕХНИКА, КВАНТОВЫЕ ВЫЧИСЛЕНИЯ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ЭНЕРГЕТИКА",
+      facultyDesc: "ВОЗОБНОВЛЯЕМЫЕ ИСТОЧНИКИ ЭНЕРГИИ, ЯДЕРНАЯ ЭНЕРГИЯ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "МЕТАЛЛУРГИЯ",
+      facultyDesc: "МЕТАЛЛУРГИЧЕСКИЕ ПРОЦЕССЫ, ПЕРЕРАБОТКА, НОВЫЕ МАТЕРИАЛЫ",
+    },
+    {
+      imageUrl: "/img/card-photo.png",
+      facultyName: "ГОРНОЕ ДЕЛО",
+      facultyDesc: "ПЕРЕРАБОТКА ГОРНЫХ ПОРОД, ДОБЫЧА ПОЛЕЗНЫХ ИСКОПАЕМЫХ",
+    },
   ];
 
-  let videoInfo: VideoParams[] = [
-    {
-      videoImagePreview: "/img/kbtu-video.png",
-      videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
-    },
-    {
-      videoImagePreview: "/img/card-photo.png",
-      videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
-    },
-    {
-      videoImagePreview: "/img/kbtu-video.png",
-      videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
-    },
-    {
-      videoImagePreview: "/img/kbtu-video.png",
-      videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
-    },
-  ];
+  // let videoInfo: VideoParams[] = [
+  //   {
+  //     videoImagePreview: "/img/kbtu-video.png",
+  //     videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
+  //   },
+  //   {
+  //     videoImagePreview: "/img/card-photo.png",
+  //     videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
+  //   },
+  //   {
+  //     videoImagePreview: "/img/kbtu-video.png",
+  //     videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
+  //   },
+  //   {
+  //     videoImagePreview: "/img/kbtu-video.png",
+  //     videoTitle: "ЧТО ТАКОЕ НАУКА В КБТУ?",
+  //   },
+  // ];
 
   return (
     <>
       <VideoCarousel videoInfo={videoInfo}></VideoCarousel>
       <GridCards />
+      <CardCarousel facultyInfo={facultyInfo}></CardCarousel>
     </>
   );
 }

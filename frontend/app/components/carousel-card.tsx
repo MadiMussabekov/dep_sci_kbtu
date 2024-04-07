@@ -1,55 +1,63 @@
-import React from "react";
-
-import FacultyCard from "./faculty-card";
-
+import React, { useState } from "react";
 import Image from "next/image";
+// ... other imports as needed
 
 import { FacultyCardCarouselParams } from "@/app/interfaces/Card/facultyCardParams.interface";
+import FacultyCard from "@/app/components/faculty-card";
 
 const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
-  return (
-    <div className="w-full flex flex-col flex-wrap ">
-      {/* <div className="bg-[--background-color-blue] flex flex-wrap mb-[40px] items-center w-full h-[220px]">
-        <h1 className="text-[40px] font-medium text-[#FFFFFF] mx-[126px]">
-          ПРОЕКТЫ
-        </h1>
-        <a href="#!">
-          <Image
-            src="/svg/arrow-right.svg"
-            alt="arrow pointing to right"
-            width={40}
-            height={10}
-          />
-        </a>
-      </div> */}
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const cardWidth = 1180 / 4; // Adjust as needed based on your card's CSS
 
-      <div className="w-full flex items-center justify-center flex-nowrap">
+  const totalSlides = Math.ceil(facultyInfo.length / 4); // Total number of slides, each containing 4 cards
+
+  const previousSlide = () => {
+    setCurrentSlide((prev) => {
+      return prev === 0 ? totalSlides - 1 : prev - 1;
+    });
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => {
+      return prev === totalSlides - 1 ? 0 : prev + 1;
+    });
+  };
+
+  return (
+    <div className="relative w-full h-[400px] flex flex-col items-center justify-center overflow-hidden">
+      <div
+        className="flex transition-transform ease-out duration-150 w-full h-full"
+        style={{ transform: `translateX(-${currentSlide * cardWidth * 4}px)` }}
+      >
         {facultyInfo.map((faculty, index) => (
-          <FacultyCard key={index} {...faculty}></FacultyCard>
+          <div
+            key={index}
+            className="flex-shrink-0 h-full"
+            style={{ width: `${cardWidth}px` }}
+          >
+            <FacultyCard {...faculty} />
+          </div>
         ))}
       </div>
-      <div className="bg-[--background-color-yellow] h-[56px] w-full flex justify-between items-center px-[150px] mt-[40px]">
-        <a href="#!">
+
+      <div className="absolute inset-x-0 bottom-0 bg-[#F3C583] flex justify-between items-center p-2">
+        <button onClick={previousSlide}>
           <Image
             src="/svg/arrow-left.svg"
-            alt="arrow pointing to left"
-            width={40}
-            height={32}
+            alt="Previous"
+            width={30}
+            height={22}
           />
-        </a>
+        </button>
 
-        {/* FIX LATER */}
-        <p className="text-[20px] font-medium text-white">1-4/16</p>
+        <span className="text-white">{`${currentSlide * 4 + 1}-${Math.min(
+          (currentSlide + 1) * 4,
+          facultyInfo.length
+        )}/${facultyInfo.length}`}</span>
 
-        <a href="#!">
-          <Image
-            src="/svg/arrow-right.svg"
-            alt="arrow pointing to right"
-            width={40}
-            height={32}
-            className="fill-white"
-          />
-        </a>
+        <button onClick={nextSlide}>
+          <Image src="/svg/arrow-right.svg" alt="Next" width={30} height={22} />
+        </button>
       </div>
     </div>
   );
