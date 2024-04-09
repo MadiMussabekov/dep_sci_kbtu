@@ -9,7 +9,7 @@ export default function FacultyCard({
   facultyDesc,
 }: FacultyCardParams) {
   return (
-    <div className="flex flex-col border border-solid border-[#DBDBDB] items-center justify-center mr-6 ml-6">
+    <div className="flex flex-col border border-solid border-[#DBDBDB] items-center justify-center">
       <Image
         src={imageUrl}
         alt={`image of  ${facultyName} faculty`}
