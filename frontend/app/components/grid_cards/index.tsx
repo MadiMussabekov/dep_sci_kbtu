@@ -8,24 +8,38 @@ import {
   GridCardsParams,
 } from "@/app/interfaces/Card/gridCardParams.interface";
 
-const GridCards: React.FC<GridCardsParams> = ({ cards }) => {
+const GridCards: React.FC<GridCardsParams> = ({ cards, ...props }) => {
+  let {
+    widthImage,
+    widthMinText,
+    widthMaxText,
+    widthIcon,
+    padding,
+  } = props;
+
+  if(!widthImage) widthImage = 100
+  if(!widthMinText) widthMinText = 12.5
+  if(!widthMaxText) widthMaxText = 23.125
+  if(!widthIcon) widthIcon = 40
+  if(!padding) padding = 4
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
       {cards.map((card, index) => (
         <div
           key={index}
-          className="flex flex-row items-center justify-between space-x-3 gap-3 p-4 border-2 border-[rgba(0,0,0,0.1)] border-solid"
+          className={`flex flex-row items-center justify-between space-x-3 gap-3 p-${padding} border-2 border-[rgba(0,0,0,0.1)] border-solid`}
         >
-          <div className="flex justify-center items-center ">
+          <div className="flex justify-center items-center gap-[2rem]">
             <Image
               src={card.image}
               alt="institution"
-              width={100} height={82}
-              className="w-[100[px] h-[82px]"
+              width={widthImage} // directly use the prop here
+              height={widthImage} // you might want to have a separate prop for height if it needs to be different
             />
-            <p className="max-w-[23.125rem] min-w-[12.5rem]">{card.title}</p>{" "}
+            <p className={`max-w-[${widthMaxText}] min-w-[${widthMinText}]`}>{card.title}</p>
           </div>
-          <Image src={card.icon} alt="icon next" width={40} height={40} />
+          <Image src={card.icon} alt="icon next" width={widthIcon} height={widthIcon} />
         </div>
       ))}
     </div>
