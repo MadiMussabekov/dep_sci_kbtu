@@ -1,18 +1,18 @@
 {
-    "Navbar": {
-      "projects": "ПРОЕКТЫ",
-      "scientific_advice": "НАУЧНЫЕ СОВЕТЫ",
-      "phd_defence": "PhD ЗАЩИТА",
-      "scientists": "УЧЕНЫЕ",
-      "scientist_profile": "ПРОФИЛЬ УЧЕНОГО",
-      "business_incubator": "БИЗНЕС-ИНКУБАТОР",
-      "reg/auto": "РЕГИСТРАЦИЯ/АВТОМАТИЗАЦИЯ",
-      "about_science": "О НАУКЕ",
-      "dept_sci_inov": "ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ",
-      "institutions": "ИНСТИТУТЫ",
-      "centers_labs": "ЦЕНТРЫ И ЛАБОРАТОРИИ",
-      "equipment": "ОБОРУДОВАНИЯ",
-      "newsletter": "ВЕСТНИК",
-      "search_placeholder": "KBTU / Наука / О науке"
-    }
+  "Navbar": {
+    "projects": "ПРОЕКТЫ",
+    "scientific_advice": "НАУЧНЫЕ СОВЕТЫ",
+    "phd_defence": "PhD ЗАЩИТА",
+    "scientists": "УЧЕНЫЕ",
+    "scientist_profile": "ПРОФИЛЬ УЧЕНОГО",
+    "business_incubator": "БИЗНЕС-ИНКУБАТОР",
+    "reg/auto": "РЕГИСТРАЦИЯ / АВТОМАТИЗАЦИЯ",
+    "about_science": "О НАУКЕ",
+    "dept_sci_inov": "ДЕПАРТАМЕНТ НАУКИ И ИННОВАЦИИ",
+    "institutions": "ИНСТИТУТЫ",
+    "centers_labs": "ЦЕНТРЫ И ЛАБОРАТОРИИ",
+    "equipment": "ОБОРУДОВАНИЯ",
+    "newsletter": "ВЕСТНИК",
+    "search_placeholder": "KBTU / Наука / О науке"
   }
+}

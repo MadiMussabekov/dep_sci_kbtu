@@ -9,19 +9,13 @@ import {
 } from "@/app/interfaces/Card/gridCardParams.interface";
 
 const GridCards: React.FC<GridCardsParams> = ({ cards, ...props }) => {
-  let {
-    widthImage,
-    widthMinText,
-    widthMaxText,
-    widthIcon,
-    padding,
-  } = props;
+  let { widthImage, widthMinText, widthMaxText, widthIcon, padding } = props;
 
-  if(!widthImage) widthImage = 100
-  if(!widthMinText) widthMinText = 12.5
-  if(!widthMaxText) widthMaxText = 23.125
-  if(!widthIcon) widthIcon = 40
-  if(!padding) padding = 4
+  if (!widthImage) widthImage = 90;
+  if (!widthMinText) widthMinText = 12.5;
+  if (!widthMaxText) widthMaxText = 23.125;
+  if (!widthIcon) widthIcon = 40;
+  if (!padding) padding = 4;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4">
@@ -34,12 +28,24 @@ const GridCards: React.FC<GridCardsParams> = ({ cards, ...props }) => {
             <Image
               src={card.image}
               alt="institution"
-              width={widthImage} // directly use the prop here
+              width={widthImage}
+              //   card.image.includes("logo-3") || card.image.includes("logo-8") // logo-3 and logo-8's widths are enlarged, because their image width are smaller than other by default
+              //     ? widthImage + 30
+              //     : widthImage
+              // } // directly use the prop here
               height={widthImage} // you might want to have a separate prop for height if it needs to be different
+              // style={{ marginLeft: card.image.includes("logo-4") ? "7px" : "" }} // for image 4, there need to be left margin, because it's more left-leaning than other images
             />
-            <p className={`max-w-[${widthMaxText}] min-w-[${widthMinText}]`}>{card.title}</p>
+            <p className={`max-w-[${widthMaxText}] min-w-[${widthMinText}]`}>
+              {card.title}
+            </p>
           </div>
-          <Image src={card.icon} alt="icon next" width={widthIcon} height={widthIcon} />
+          <Image
+            src={card.icon}
+            alt="icon next"
+            width={widthIcon}
+            height={widthIcon}
+          />
         </div>
       ))}
     </div>

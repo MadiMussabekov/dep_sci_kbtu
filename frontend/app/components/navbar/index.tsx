@@ -37,12 +37,13 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           src="https://kbtu.edu.kz/images/logoWh.svg"
           alt=""
           width={150}
-          height={150}
+          height={80}
         />
         <div className={styles.switcher_container}>
           <select
             value={language}
             onChange={(e) => handleLanguageChange(e.target.value)}
+            className="focus:outline-none"
           >
             <option value="kk">KAZ</option>
             <option value="ru">RUS</option>
@@ -68,6 +69,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
               id="search-query"
               placeholder={t("search_placeholder")}
               aria-label="Search"
+              className="text-[0.875rem]"
             />
             <button type="submit" aria-label="Submit Search">
               <div className={styles.search_icon_container}>
@@ -81,7 +83,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
             </button>
           </div>
         </form>
-        <div className="flex flex-wrap items-center justify-center gap-4 w-full bg-white text-black">
+        <div className="flex flex-wrap items-center justify-center gap-6 w-full bg-white text-black mr-20">
           {/* Using `md:` prefix to apply styles for medium screens and up */}
           <div
             className={
@@ -91,22 +93,24 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
                 : "p-2"
             }
           >
-            <p className="text-sm cursor-pointer">{t("about_science")}</p>
+            <p className="text-sm cursor-pointer font-light">
+              {t("about_science")}
+            </p>
           </div>
 
-          <div className="p-2">
+          <div className="p-2 font-light">
             <p className="text-sm cursor-pointer">{t("dept_sci_inov")}</p>
           </div>
-          <div className="p-2">
+          <div className="p-2 font-light">
             <p className="text-sm cursor-pointer">{t("institutions")}</p>
           </div>
-          <div className="p-2">
+          <div className="p-2 font-light">
             <p className="text-sm cursor-pointer">{t("centers_labs")}</p>
           </div>
-          <div className="p-2">
+          <div className="p-2 font-light">
             <p className="text-sm cursor-pointer">{t("equipment")}</p>
           </div>
-          <div className="p-2">
+          <div className="p-2 font-light">
             <p className="text-sm cursor-pointer">{t("newsletter")}</p>
           </div>
         </div>

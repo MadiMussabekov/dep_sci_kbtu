@@ -9,14 +9,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import {
-  FacultyCardParams,
-} from "@/app/interfaces/Card/facultyCardParams.interface";
+import { FacultyCardParams } from "@/app/interfaces/Card/facultyCardParams.interface";
 import VideoCarousel from "../components/carousel-video";
 
 import GridCards from "../components/grid_cards";
 
-import { facultyInfo, videoInfo, cards, universityCards } from "@/database/homepage";
+import {
+  facultyInfo,
+  videoInfo,
+  cards,
+  universityCards,
+} from "@/database/homepage";
 import CustomAccordion from "../components/accordion";
 
 interface CardCarouselParams {
@@ -24,8 +27,6 @@ interface CardCarouselParams {
 }
 
 export default function Home() {
-
-
   return (
     <div className="flex flex-col items-center">
       {/* Section 1 */}
@@ -40,7 +41,13 @@ export default function Home() {
             <div className="bg-[--background-color-blue] mb-7 flex items-center justify-around py-[2.5rem] text-white w-[25rem]">
               <h2 className="text-2xl text-center">УСЛУГИ ЛАБОРАТОРИЙ</h2>
               <div className="w-[2rem] h-full">
-                <Image src="/carbon_arrow-right-white.svg" alt="right arrow" className="w-[50px]" width={50} height={50} />
+                <Image
+                  src="/carbon_arrow-right-white.svg"
+                  alt="right arrow"
+                  className="w-[50px]"
+                  width={50}
+                  height={50}
+                />
               </div>
             </div>
             <div className="bg-[--background-color-yellow] font-medium text-[1.25rem]   flex items-center justify-center text-white text-xl w-[25rem] py-2 px-1">
@@ -101,7 +108,6 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Section 4 */}
       <>
         <div className="bg-[--background-color-blue] flex flex-wrap mb-[2.5rem] items-center w-full h-[12.5rem] gap-[22.1rem] pl-[8rem]">
@@ -122,9 +128,13 @@ export default function Home() {
       {/* Section 5 */}
       <div className="grid grid-cols-1 gap-7 mb-[4.375rem] mt-20 w-[83%]">
         <h1 className="font-medium text-[3rem]">ИНСТИТУТЫ</h1>
-        <GridCards cards={universityCards} widthImage={140} widthIcon={40} padding={7} />
+        <GridCards
+          cards={universityCards}
+          widthImage={140}
+          widthIcon={40}
+          padding={7}
+        />
       </div>
-
 
       {/* Section 6 */}
       <div className="grid grid-cols-1 gap-5 mb-20 w-[83%]">
