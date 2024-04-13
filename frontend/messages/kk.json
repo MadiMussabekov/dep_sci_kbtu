@@ -14,5 +14,21 @@
     "equipment": "ЖАБДЫҚТАР",
     "newsletter": "ВЕСТНИК",
     "search_placeholder": "KBTU / Ғылым / Ғылым жайлы"
+  },
+  "Home": {
+    "sci_services": "ЗЕРТХАНАЛЫҚ ҚЫЗМЕТТЕР",
+    "about_science": "КБТУ-ДА ҒЫЛЫМ ТУРАЛЫ",
+    "section1_card_1": "ӨЗІҢДЕ ҒАЛЫМДЫ ТАП!",
+    "section1_card_2": "PhD ҚОРҒАУ",
+    "section1_card_3": "ӨМІР САПАСЫН ЖАҚСАРТУ!",
+    "section1_card_4": "ГЛОБАЛДЫҚ МӘСЕЛЕЛЕРДІ ШЕШУ!",
+    "section1_card_5": "АЛҒА ҚАДАМ!",
+    "section1_card_6": "БҰЛ ЖАҢАЛЫҚ!",
+    "activities": "ҚЫЗМЕТ ТҮРЛЕРІ",
+    "projects": "ЖОБАЛАР",
+    "institutions": "ИНСТИТУТТАР",
+    "faq_1_title": "Сіздермен серіктестікте жоба дамытуға бола ма?",
+    "faq_1_content": "Иә."
   }
+
 }
