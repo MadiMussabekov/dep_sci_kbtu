@@ -32,25 +32,31 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
 
   return (
     <nav className="flex flex-col items-center justify-center w-full h-40 shadow">
-      <div className={styles.nav__top}>
-        <Image
-          src="https://kbtu.edu.kz/images/logoWh.svg"
-          alt=""
-          width={150}
-          height={80}
-        />
-        <div className={styles.switcher_container}>
-          <select
-            value={language}
-            onChange={(e) => handleLanguageChange(e.target.value)}
-            className="focus:outline-none"
-          >
-            <option value="kk">KAZ</option>
-            <option value="ru">RUS</option>
-            <option value="en">ENG</option>
-          </select>
+      <div
+        className={`flex items-center justify-between bg-[--background-color-blue] h-[50%] w-full px-8 text-white`}
+      >
+        <div className="flex ">
+          <Image
+            src="https://kbtu.edu.kz/images/logoWh.svg"
+            alt=""
+            width={150}
+            height={80}
+          />
+          <div className={styles.switcher_container}>
+            <select
+              value={language}
+              onChange={(e) => handleLanguageChange(e.target.value)}
+              className="focus:outline-none"
+            >
+              <option value="kk">KAZ</option>
+              <option value="ru">RUS</option>
+              <option value="en">ENG</option>
+            </select>
+          </div>
         </div>
-        <div className={styles.navbar__elements}>
+        <div
+          className={`text-xs lg:text-sm md:flex gap-3 items-center justify-center md:gap-6 hidden `}
+        >
           <p>{t("projects")}</p>
           <p>{t("scientific_advice")}</p>
           <p>{t("phd_defence")}</p>
@@ -58,6 +64,15 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           <p>{t("scientist_profile")}</p>
           <p>{t("business_incubator")}</p>
           <p>{t("reg/auto")}</p>
+        </div>
+
+        <div className={`justify-center items-center md:hidden `}>
+          <Image
+            src="/dehaze-rounded.svg"
+            alt="dropdown-icon"
+            width={36}
+            height={28}
+          />
         </div>
       </div>
       <div className={styles.nav__bottom}>
@@ -83,34 +98,25 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
             </button>
           </div>
         </form>
-        <div className="flex flex-wrap items-center justify-center gap-6 w-full bg-white text-black mr-20">
+        <div className="flex-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm">
           {/* Using `md:` prefix to apply styles for medium screens and up */}
-          <div
-            className={
-              pathname &&
-              (pathname === "/kk" || pathname === "/ru" || pathname === "/en")
-                ? "bg-[color:var(--background-color-blue)] p-2 text-white h-full flex items-center justify-center"
-                : "p-2"
-            }
-          >
-            <p className="text-sm cursor-pointer font-light">
-              {t("about_science")}
-            </p>
+          <div className="p-2 font-light hidden md:block">
+            <p className="text-sm font-light">{t("about_science")}</p>
           </div>
 
-          <div className="p-2 font-light">
+          <div className="p-2 font-light hidden md:block">
             <p className="text-sm cursor-pointer">{t("dept_sci_inov")}</p>
           </div>
-          <div className="p-2 font-light">
+          <div className="p-2 font-light hidden md:block">
             <p className="text-sm cursor-pointer">{t("institutions")}</p>
           </div>
-          <div className="p-2 font-light">
+          <div className="p-2 font-light hidden md:block">
             <p className="text-sm cursor-pointer">{t("centers_labs")}</p>
           </div>
-          <div className="p-2 font-light">
+          <div className="p-2 font-light hidden md:block">
             <p className="text-sm cursor-pointer">{t("equipment")}</p>
           </div>
-          <div className="p-2 font-light">
+          <div className="p-2 font-light hidden md:block">
             <p className="text-sm cursor-pointer">{t("newsletter")}</p>
           </div>
         </div>

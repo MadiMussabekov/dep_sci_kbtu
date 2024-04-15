@@ -24,8 +24,8 @@ const CustomAccordion = ({ title, content }) => {
             }
             src={arrow_up}
             alt="arrow up"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
           />
         </div>
       </button>
