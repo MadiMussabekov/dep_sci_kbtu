@@ -6,9 +6,9 @@ import FacultyCard from '@/app/components/faculty-card';
 import { FacultyCardCarouselParams } from '@/app/interfaces/Card/facultyCardParams.interface';
 import styles from './style.module.css';
 
-const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
+const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo, cardsNum }) => {
   // Assume we have a constant number of cards to show at a time
-  const cardsPerPage = 4;
+  const cardsPerPage = cardsNum;
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Calculate the total number of slides
@@ -16,7 +16,7 @@ const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
 
   const [animating, setAnimating] = useState(false);
 
-  const handleSlideChange = (nextIndex:any) => {
+  const handleSlideChange = (nextIndex: any) => {
     if (!animating) {
       setAnimating(true); // Start animation
       setTimeout(() => {
@@ -41,25 +41,26 @@ const CardCarousel: React.FC<FacultyCardCarouselParams> = ({ facultyInfo }) => {
     endIdx = startIdx + cardsPerPage
 
     console.log(facultyInfo)
-    console.log(startIdx,endIdx,facultyInfo.slice(startIdx,endIdx))
-  },[currentSlide])
+    console.log(startIdx, endIdx, facultyInfo.slice(startIdx, endIdx))
+  }, [currentSlide])
   // Determine the cards to show on the current slide
   let startIdx = currentSlide * cardsPerPage
   let endIdx = startIdx + cardsPerPage
-  
+
   return (
     <div className="w-full flex flex-col items-center justify-center overflow-x-hidden gap-10">
       {/* Cards display */}
-      <div className="flex justify-between items-center w-[83%]">
-        {facultyInfo.slice(startIdx,endIdx).map((faculty, index) => (
-          <div key={index} className={`flex-shrink-0 ${animating ? styles.fadeOut : styles.fadeIn}`}>
-            <FacultyCard {...faculty} />
-          </div>
-        ))}
+      <div className={cardsNum === 1 ? "" : 'flex w-[100%] items-center justify-center'}>
+        <div className="flex justify-between items-center w-[83%]">
+          {facultyInfo.slice(startIdx, endIdx).map((faculty, index) => (
+            <div key={index} className={`flex-shrink-0 ${animating ? styles.fadeOut : styles.fadeIn}`}>
+              <FacultyCard {...faculty} />
+            </div>
+          ))}
+        </div>
       </div>
-
       {/* Navigation controls */}
-      <div className="w-full h-14 text-white bg-[#F3C583] flex justify-between items-center px-[10rem]">
+      <div className="w-full h-14 text-white bg-[#F3C583] flex justify-between items-center px-[7rem] lg:px-[10rem]">
         <button onClick={previousSlide} className='w-[1.5rem]'>
           <Image src="/svg/arrow-left.svg" alt="Previous" width={30} height={22} />
         </button>
