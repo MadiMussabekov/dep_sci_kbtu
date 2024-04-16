@@ -1,4 +1,4 @@
-/* Tailwind replaced */
+Tailwind replaced
 /* .nav{
     display: flex;
     flex-flow: column;
@@ -21,13 +21,6 @@
   height: 50%;
   width: 100%;
   padding: 0 2rem;
-}
-
-.navbar__elements p {
-  /* font-size: 0.8rem; */
-}
-
-.nav__bottom {
 }
 
 /* Container */
