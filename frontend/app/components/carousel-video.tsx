@@ -22,7 +22,7 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
   };
 
   return (
-    <div className="overflow-hidden relative w-[580px] h-[380px] flex flex-col">
+    <div className="overflow-hidden w-full h-full flex flex-col">
       <div
         className="flex transition-transform ease-out duration-150 h-full"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}

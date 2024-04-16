@@ -40,7 +40,9 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <head></head>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
       <body>
         {/* Wrap it because it can't be turned into server side component */}
         <NextIntlClientProvider messages={pick(messages, "Navbar")}>
