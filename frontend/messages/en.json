@@ -14,5 +14,21 @@
     "equipment": "EQUIPMENT",
     "newsletter": "BULLETIN",
     "search_placeholder": "KBTU / Science / About Science"
+  },
+  "Home": {
+    "sci_services": "LABORATORY SERVICES",
+    "about_science": "ABOUT SCIENCE AT KBTU",
+    "section1_card_1": "DISCOVER THE SCIENTIST IN YOU!",
+    "section1_card_2": "PhD DEFENSE",
+    "section1_card_3": "IMPROVING QUALITY OF LIFE!",
+    "section1_card_4": "SOLVING GLOBAL ISSUES!",
+    "section1_card_5": "A STEP FORWARD!",
+    "section1_card_6": "SOMETHING NEW!",
+    "activities": "TYPES OF ACTIVITIES",
+    "projects": "PROJECTS",
+    "institutions": "INSTITUTES",
+    "faq_1_title": "Is it possible to develop a project in partnership with you?",
+    "faq_1_content": "Yes."
   }
+
 }

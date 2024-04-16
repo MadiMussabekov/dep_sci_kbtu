@@ -6,4 +6,5 @@ export interface FacultyCardParams {
 
 export interface FacultyCardCarouselParams {
   facultyInfo: FacultyCardParams[];
+  cardsNum: number
 }

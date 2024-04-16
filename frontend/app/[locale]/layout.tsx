@@ -51,7 +51,9 @@ export default function RootLayout({
         <main
           className={cn("min-h-screen bg-background font-sans antialiased")}
         >
-          {children}
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {children}
+          </NextIntlClientProvider>
         </main>
 
         <Footer />

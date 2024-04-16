@@ -14,5 +14,20 @@
     "equipment": "ОБОРУДОВАНИЯ",
     "newsletter": "ВЕСТНИК",
     "search_placeholder": "KBTU / Наука / О науке"
+  },
+  "Home": {
+    "sci_services": "УСЛУГИ ЛАБОРАТОРИЙ",
+    "about_science": "О НАУКЕ В КБТУ",
+    "section1_card_1": "ОТКРОЙ В СЕБЕ УЧЕНОГО!",
+    "section1_card_2": "PhD ЗАЩИТА",
+    "section1_card_3": "УЛУЧШЕНИЕ КАЧЕСТВА ЖИЗНИ!",
+    "section1_card_4": "РЕШЕНИЕ ГЛОБАЛЬНЫХ ПРОБЛЕМ!",
+    "section1_card_5": "ШАГ ВПЕРЕД!",
+    "section1_card_6": "ЭТО НЕЧТО НОВОЕ!",
+    "activities": "ВИДЫ ДЕЯТЕЛЬНОСТИ",
+    "projects": "ПРОЕКТЫ",
+    "institutions":"ИНСТИТУТЫ",
+    "faq_1_title": "Можно ли вместе в вами в партнерстве разработать проект?",
+    "faq_1_content": "Да."
   }
 }
