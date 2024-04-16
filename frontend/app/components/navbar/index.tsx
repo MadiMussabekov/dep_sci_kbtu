@@ -5,8 +5,11 @@ import React, { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Navbar({ locale: initialLocale }: { locale: string }) {
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+
   const [language, setLanguage] = useState(initialLocale);
 
   const locales = ["en", "kk", "ru"] as const;
@@ -33,20 +36,22 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
   return (
     <nav className="flex flex-col items-center justify-center w-full h-40 shadow">
       <div
-        className={`flex items-center justify-between bg-[--background-color-blue] h-[50%] w-full px-8 text-white`}
+        className={`flex items-center justify-between md:pl-0 md:justify-center bg-[--background-color-blue] h-[50%] w-full pr-8 text-white `}
       >
-        <div className="flex ">
+        <div className="flex-center ml-7">
           <Image
             src="https://kbtu.edu.kz/images/logoWh.svg"
             alt=""
             width={150}
             height={80}
           />
-          <div className={styles.switcher_container}>
+
+          <div className={`flex-center mx-[2rem] border border-white`}>
             <select
               value={language}
               onChange={(e) => handleLanguageChange(e.target.value)}
-              className="focus:outline-none"
+              className="w-full h-full focus:outline-none bg-transparent px-4 py-3 text-[0.75rem] text-white"
+              style={{ borderRight: "12px solid transparent" }}
             >
               <option value="kk">KAZ</option>
               <option value="ru">RUS</option>
@@ -55,7 +60,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           </div>
         </div>
         <div
-          className={`text-xs lg:text-sm md:flex gap-3 items-center justify-center md:gap-6 hidden `}
+          className={`text-xs lg:text-sm md:flex gap-2 items-center justify-center lg:gap-6 hidden `}
         >
           <p>{t("projects")}</p>
           <p>{t("scientific_advice")}</p>
@@ -66,39 +71,111 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           <p>{t("reg/auto")}</p>
         </div>
 
-        <div className={`justify-center items-center md:hidden `}>
+        <div className={`justify-center items-center md:hidden cursor-pointer`}>
           <Image
             src="/dehaze-rounded.svg"
             alt="dropdown-icon"
             width={36}
             height={28}
+            onClick={() => setToggleDropdown(!toggleDropdown)}
           />
+
+          {toggleDropdown && (
+            <div className="dropdown">
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                My Profile
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+              <Link
+                href="/#!"
+                className="dropdown_link"
+                onClick={() => setToggleDropdown(false)}
+              >
+                Create Prompt
+              </Link>
+            </div>
+          )}
         </div>
       </div>
-      <div className={styles.nav__bottom}>
-        <form className={styles.search_bar} action="/search" method="GET">
-          <div className={styles.search_bar_inside}>
+
+      <div
+        className={`flex items-center justify-center h-[50%] w-full gap-0 sm:gap-10 lg:gap-16`}
+      >
+        {/* INPUT AND SEARCH ICON */}
+        <div
+          className="border border-[#dbdbdb] w-72 h-10 flex-center 
+          md:block md:ml-16 md:w-96
+        "
+        >
+          <form
+            className="flex items-center justify-center w-full h-full"
+            action="/search"
+            method="GET"
+          >
             <input
               type="text"
-              name="query"
-              id="search-query"
+              aria-label="search"
               placeholder={t("search_placeholder")}
-              aria-label="Search"
-              className="text-[0.875rem]"
+              className="w-full h-full px-1 py-1 font-light text-sm pl-3 outline-none"
             />
-            <button type="submit" aria-label="Submit Search">
-              <div className={styles.search_icon_container}>
-                <Image
-                  src="/search_icon_white.svg"
-                  alt="Search"
-                  width={20}
-                  height={20}
-                />
-              </div>
-            </button>
-          </div>
-        </form>
-        <div className="flex-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm">
+            <div className="w-10 h-full flex items-center justify-center bg-[--background-color-blue]">
+              <Image
+                src="/search_icon_white.svg"
+                alt="Search"
+                width={20}
+                height={20}
+              />
+            </div>
+          </form>
+        </div>
+
+        {/* SECOND HEADER TITLES */}
+        <div className="hidden md:flex md:items-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm">
           {/* Using `md:` prefix to apply styles for medium screens and up */}
           <div className="p-2 font-light hidden md:block">
             <p className="text-sm font-light">{t("about_science")}</p>

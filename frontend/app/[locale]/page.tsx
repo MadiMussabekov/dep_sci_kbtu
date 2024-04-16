@@ -100,40 +100,42 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Section 1 */}
-      <div className="flex justify-center items-center w-75%">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-11 items-center h-[34.5rem] w-full">
+      <div className="flex justify-center items-center w-75% max-h-[50rem] mb-[11rem] md:mb-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-11 items-center h-[34.5rem] w-full">
           {/* Left Side, can adjust paddings here*/}
-          <div className="">
-            <h1 className="font-normal text-[3.75rem] leading-none mb-[7rem]">
-              E = MC
-              <span className="super ml-2">²</span>
+          <div className="p-7 md:p-0">
+            <h1 className="font-normal leading-none mb-10 md:mb-16">
+              <span className="text-4xl md:text-[3.75rem]">E = MC</span>
+              <span className="align-[1rem] md:align-super text-[2.5rem]">
+                ²
+              </span>
             </h1>
-            <div className="bg-[--background-color-blue] mb-7 flex items-center justify-around py-[2.5rem] text-white w-[25rem]">
+
+            <div className="w-full h-14 col-span-3 md:w-[25rem] md:h-24 bg-[--background-color-blue] mb-7 flex items-center justify-around py-[2.5rem] text-white">
               <h2 className="text-2xl text-center">УСЛУГИ ЛАБОРАТОРИЙ</h2>
-              <div className="w-[2rem] h-full">
-                <Image
-                  src="/carbon_arrow-right-white.svg"
-                  alt="right arrow"
-                  className="w-[50px]"
-                  width={50}
-                  height={50}
-                />
-              </div>
+              <Image
+                src="/carbon_arrow-right-white.svg"
+                alt="right arrow"
+                width={35}
+                height={35}
+              />
             </div>
-            <div className="bg-[--background-color-yellow] font-medium text-[1.25rem]   flex items-center justify-center text-white text-xl w-[25rem] py-2 px-1">
+
+            <div className="bg-[--background-color-yellow] font-medium text-[1.25rem] flex items-center justify-center text-white text-xl w-full md:w-[25rem] py-2 px-1">
               +7 778 679 67 43 / science@kbtu.kz
             </div>
           </div>
 
           {/* Right Side */}
-          <div>
+          <div className="col-span-2 md:col-span-1 h-[23.75rem]">
             <VideoCarousel videoInfo={videoInfo} />
           </div>
         </div>
       </div>
+
       {/* Section 2 */}
       <div className="w-full">
-        <div className="flex justify-between items-center gap-5 max-w-72 ml-32 mb-3">
+        <div className="flex justify-around items-center gap-5 max-w-72 md:ml-32 mb-3">
           <h2 className="text-black text-2xl font-normal">О НАУКЕ В КБТУ</h2>
           <div className="relative flex justify-center items-center w-[2.75rem] h-[2.75rem]">
             <Image
@@ -144,7 +146,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-around items-center bg-[--background-color-blue] w-full h-[11.25rem] px-32 py-5 gap-5">
+        <div className="overflow-y-scroll flex justify-around items-center bg-[--background-color-blue] w-full h-auto px-16 py-5 gap-5">
           <button className="border rounded-[5px] border-white p-5 text-white w-[11.25rem] h-[8.75rem] text-xl font-normal">
             ОТКРЫТИЕ В СЕБЕ УЧЕНОГО!
           </button>
