@@ -2,13 +2,6 @@
 import Image from "next/image";
 import CardCarousel from "../components/carousel-cards";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
 import { FacultyCardParams } from "@/app/interfaces/Card/facultyCardParams.interface";
 import VideoCarousel from "../components/carousel-video";
 
@@ -34,18 +27,20 @@ export default function Home() {
     padding: "1rem",
     widthMaxText: "70%",
     gapImgText: "2rem",
-    gapTextIcon: "0.75rem"
+    gapTextIcon: "0.75rem",
   });
 
-  const [mobileVer,setMobileVer] = useState<boolean>(false);
+  const [mobileVer, setMobileVer] = useState<boolean>(false);
 
-  {/* widthImage num, 
+  {
+    /* widthImage num, 
       widthIcon num, 
       padding rem,percentages,etc, 
       widthMinText rem,percentages,etc, 
       widthMaxText rem,percentages,etc, 
       gapImgText rem,percentages,etc, 
-      gapTextIcon rem,percentages,etc*/}
+      gapTextIcon rem,percentages,etc*/
+  }
 
   // Number of cards in slider
   const [cardsNum, setCardsNum] = useState(4);
@@ -59,29 +54,29 @@ export default function Home() {
           padding: "1rem",
           widthMaxText: "70%",
           gapImgText: "0.75rem",
-          gapTextIcon: "0.75rem"
+          gapTextIcon: "0.75rem",
         });
 
-        setCardsNum(1)
-        setMobileVer(true)
+        setCardsNum(1);
+        setMobileVer(true);
       } else if (window.innerWidth < 1100) {
-        setCardsNum(2)
-        setMobileVer(false)
+        setCardsNum(2);
+        setMobileVer(false);
       } else if (window.innerWidth < 1450) {
-        setCardsNum(3)
-        setMobileVer(false)
-      }else {
-        setMobileVer(false)
+        setCardsNum(3);
+        setMobileVer(false);
+      } else {
+        setMobileVer(false);
         setResGridProps({
           widthImage: 50,
           widthIcon: 20,
           padding: "1rem",
           widthMaxText: "70%",
           gapImgText: "2rem",
-          gapTextIcon: "0.75rem"
+          gapTextIcon: "0.75rem",
         });
 
-        setCardsNum(4)
+        setCardsNum(4);
       }
     }
 
@@ -89,13 +84,10 @@ export default function Home() {
     handleResize();
 
     // When window resizes, listener triggers
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
-
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-
 
   return (
     <div className="flex flex-col items-center">
@@ -183,7 +175,9 @@ export default function Home() {
       {/* Section 4 */}
       <>
         <div className="bg-[--background-color-blue] flex flex-wrap mb-[2.5rem] items-center w-full h-[12.5rem] gap-[7.5rem] lg:gap-[22.1rem] pl-[8rem]">
-          <h1 className="text-[1.5rem]  lg:text-[2.5rem] font-medium text-[#FFFFFF]">ПРОЕКТЫ</h1>
+          <h1 className="text-[1.5rem]  lg:text-[2.5rem] font-medium text-[#FFFFFF]">
+            ПРОЕКТЫ
+          </h1>
           <a href="#!">
             <Image
               src="/carbon_arrow-right-white.svg"

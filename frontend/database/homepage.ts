@@ -1,10 +1,4 @@
 import { GridCardParams } from "./../app/interfaces/Card/gridCardParams.interface";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 import {
   FacultyCardCarouselParams,
