@@ -167,7 +167,7 @@ export default function Home() {
             ВИДЫ ДЕЯТЕЛЬНОСТИ
           </h1>
           <div className="col-span-full">
-            <GridCards {...resGridProps} cards={cards} />
+            <GridCards cards={cards} {...resGridProps} />
           </div>
         </div>
       </div>
