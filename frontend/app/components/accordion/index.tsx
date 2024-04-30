@@ -1,13 +1,17 @@
 import { useState, useRef } from "react";
 import styles from "./style.module.css";
-// import arrow_up from '@/public/raphael_arrowup.svg';
 import arrow_up from "@/public/iconamoon_arrow-up-2-thin.svg";
-
 import Image from "next/image";
 
-const CustomAccordion = ({ title, content }) => {
+const CustomAccordion = ({
+  title,
+  content,
+}: {
+  title: string;
+  content: string;
+}) => {
   const [isActive, setIsActive] = useState(false);
-  const contentRef = useRef(null);
+  const contentRef = useRef<HTMLDivElement>(null); // Specify the type of the ref
 
   const handleClick = () => {
     setIsActive(!isActive);
@@ -33,7 +37,7 @@ const CustomAccordion = ({ title, content }) => {
         className={`${styles.accordion_content}`}
         ref={contentRef}
         style={{
-          maxHeight: isActive ? `${contentRef.current.scrollHeight}px` : "0",
+          maxHeight: isActive ? `${contentRef.current?.scrollHeight}px` : "0",
           transition: "max-height 0.3s ease-in-out",
           overflow: "hidden",
         }}
