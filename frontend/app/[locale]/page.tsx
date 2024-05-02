@@ -138,7 +138,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="overflow-y-scroll flex justify-around items-center bg-[--background-color-blue] w-full h-auto px-16 py-5 gap-5">
+        <div className="overflow-y-hidden flex justify-around items-center bg-[--background-color-blue] w-full h-auto px-16 py-5 gap-5">
           <button className="border rounded-[5px] border-white p-5 text-white w-[11.25rem] h-[8.75rem] text-xl font-normal">
             ОТКРЫТИЕ В СЕБЕ УЧЕНОГО!
           </button>
@@ -163,7 +163,7 @@ export default function Home() {
       {/* Section 3 */}
       <div className="w-full mb-[5rem] mt-[4rem]">
         <div className="grid grid-cols-1 gap-5 max-w-[82%] mx-auto">
-          <h1 className="text-[3rem] col-span-full mb-10 ">
+          <h1 className="sm:text-[3rem] text-[2rem] col-span-full mb-10 ">
             ВИДЫ ДЕЯТЕЛЬНОСТИ
           </h1>
           <div className="col-span-full">

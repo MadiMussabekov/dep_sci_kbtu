@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function Navbar({ locale: initialLocale }: { locale: string }) {
-  const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [toggleDropdown, setToggleDropdown] = useState(true);
 
   const [language, setLanguage] = useState(initialLocale);
 
@@ -34,7 +34,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
   }, [initialLocale]);
 
   return (
-    <nav className="flex flex-col items-center justify-center w-full h-40 shadow">
+    <nav className={`${styles.navbar} h-40 shadow`}>
       <div
         className={`flex items-center justify-between md:pl-0 md:justify-center bg-[--background-color-blue] h-[50%] w-full pr-8 text-white `}
       >
@@ -50,7 +50,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
             <select
               value={language}
               onChange={(e) => handleLanguageChange(e.target.value)}
-              className="w-full h-full focus:outline-none bg-transparent px-4 py-3 text-[0.75rem] text-white"
+              className="w-[90px] h-full focus:outline-none bg-transparent px-4 py-3 text-[0.75rem] text-white"
               style={{ borderRight: "12px solid transparent" }}
             >
               <option value="kk">KAZ</option>
@@ -60,7 +60,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           </div>
         </div>
         <div
-          className={`text-xs lg:text-sm md:flex gap-2 items-center justify-center lg:gap-6 hidden `}
+          className={`${styles.desktopMenu} text-xs lg:text-sm gap-2 items-center justify-center lg:gap-6`}
         >
           <p>{t("projects")}</p>
           <p>{t("scientific_advice")}</p>
@@ -71,7 +71,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           <p>{t("reg/auto")}</p>
         </div>
 
-        <div className={`justify-center items-center md:hidden cursor-pointer`}>
+        <div className={`${styles.dropdownIcon}`}>
           <Image
             src="/dehaze-rounded.svg"
             alt="dropdown-icon"
@@ -81,7 +81,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
           />
 
           {toggleDropdown && (
-            <div className="dropdown">
+            <div className={`${styles.dropdown}`}>
               <Link
                 href="/#!"
                 className="dropdown_link"
@@ -148,12 +148,12 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
       >
         {/* INPUT AND SEARCH ICON */}
         <div
-          className="border border-[#dbdbdb] w-72 h-10 flex-center 
-          md:block md:ml-16 md:w-96
+          className="border border-[#dbdbdb] h-10 flex-center 
+          md:block md:ml-16
         "
         >
           <form
-            className="flex items-center justify-center w-full h-full"
+            className="flex items-center justify-center w-[250px] h-full"
             action="/search"
             method="GET"
           >
@@ -175,7 +175,7 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
         </div>
 
         {/* SECOND HEADER TITLES */}
-        <div className="hidden md:flex md:items-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm">
+        <div className={`${styles.desktopMenu} md:items-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm`}>
           {/* Using `md:` prefix to apply styles for medium screens and up */}
           <div className="p-2 font-light hidden md:block">
             <p className="text-sm font-light">{t("about_science")}</p>
