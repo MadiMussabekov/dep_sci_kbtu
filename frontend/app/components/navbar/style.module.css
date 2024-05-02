@@ -1,4 +1,4 @@
-Tailwind replaced
+/* Tailwind replaced */
 /* .nav{
     display: flex;
     flex-flow: column;
@@ -9,7 +9,27 @@ Tailwind replaced
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 } */
+/*   @apply absolute right-0 mt-3 p-5 rounded-lg bg-white 
+min-w-[210px] flex flex-col gap-2 justify-end items-center 
+bg-[--background-color-blue];
+ */
 
+.dropdown{
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 20rem;
+  height: auto;
+  top: 0;
+  left: 0;
+  background-color: var(--background-color-blue);
+  gap: 0.5rem;
+  border-radius: 0 0 10px 10px;
+
+  z-index: 100;
+}
+/*   @apply text-sm text-white hover:text-gray-400 font-medium; */
 .highlighted {
   color: white;
   background-color: var(--background-color-blue);
@@ -84,4 +104,37 @@ Tailwind replaced
 .nav__top {
   color: white;
   background-color: var(--background-color-blue);
+}
+/* navbar custom settings */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: column;
+  width: 100%;
+}
+
+.desktopMenu {
+  display: flex;
+  gap: 2rem;
+}
+
+.dropdownIcon {
+  display: none;
+}
+
+/* Custom breakpoint at 985px */
+@media (max-width: 1130px) {
+  .desktopMenu {
+    display: none;
+  }
+  .dropdownIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
 }
