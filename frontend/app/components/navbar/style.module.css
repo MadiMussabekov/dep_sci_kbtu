@@ -22,7 +22,7 @@ bg-[--background-color-blue];
   width: 20rem;
   height: auto;
   top: 0;
-  left: 0;
+  right: 10px;
   background-color: var(--background-color-blue);
   gap: 0.5rem;
   border-radius: 0 0 10px 10px;
