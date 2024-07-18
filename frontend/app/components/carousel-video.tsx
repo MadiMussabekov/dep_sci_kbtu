@@ -10,6 +10,7 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
 
   const previousSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setPlayingVideo(false);
     setCurrentSlide((prevSlide) =>
       prevSlide === 0 ? videoInfo.length - 1 : prevSlide - 1
     );
@@ -17,6 +18,7 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
 
   const nextSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setPlayingVideo(false);
     setCurrentSlide((prevSlide) =>
       prevSlide === videoInfo.length - 1 ? 0 : prevSlide + 1
     );
