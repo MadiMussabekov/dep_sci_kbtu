@@ -6,6 +6,7 @@ import { VideoCarouselParams } from "@/app/interfaces/Carousel/videoCarouselPara
 
 const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
   let [currentSlide, setCurrentSlide] = useState(0);
+  const [playingVideo, setPlayingVideo] = useState(false);
 
   const previousSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -21,6 +22,11 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
     );
   };
 
+  const handlePlay = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setPlayingVideo((playingVideo) => !playingVideo);
+  };
+
   return (
     <div className="overflow-hidden w-full h-full flex flex-col">
       <div
@@ -32,22 +38,53 @@ const VideoCarousel: React.FC<VideoCarouselParams> = ({ videoInfo }) => {
             key={ind}
             className="flex-shrink-0 w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: `url(${video.videoImagePreview})`,
+              backgroundImage: playingVideo
+                ? ""
+                : `url(${video.videoImagePreview})`,
             }}
           >
-            <h1 className="relative font-bold text-black/30 text-[24px] top-0 left-0 max-w-[156px]">
-              {video.videoTitle}
-            </h1>
+            {playingVideo ? (
+              <></>
+            ) : (
+              <h1 className="relative font-bold text-black/30 text-[24px] top-0 left-0 max-w-[156px]">
+                {video.videoTitle}
+              </h1>
+            )}
+
+            {/* <video width="400" controls preload="metadata">
+              <source
+                src="https://science-1.object.pscloud.io/edit5.mp4#t=0.1"
+                type="video/mp4"
+              />
+            </video> */}
+
+            {/* <button type="button" onClick={handlePlay}>
+              <Image
+                src="/svg/video-play-btn.svg"
+                alt="play button"
+                width={100}
+                height={100}
+              />
+            </button> */}
 
             <div className="flex items-center justify-center">
-              <button type="button">
-                <Image
-                  src="/svg/video-play-btn.svg"
-                  alt="play button"
-                  width={100}
-                  height={100}
-                />
-              </button>
+              {playingVideo ? (
+                <video controls preload="metadata">
+                  <source
+                    src="https://science-1.object.pscloud.io/edit5.mp4#t=0.1"
+                    type="video/mp4"
+                  />
+                </video>
+              ) : (
+                <button type="button" onClick={handlePlay}>
+                  <Image
+                    src="/svg/video-play-btn.svg"
+                    alt="play button"
+                    width={100}
+                    height={100}
+                  />
+                </button>
+              )}
             </div>
           </div>
         ))}
