@@ -9,7 +9,6 @@ import Link from "next/link";
 
 export default function Navbar({ locale: initialLocale }: { locale: string }) {
   const [toggleDropdown, setToggleDropdown] = useState(true);
-
   const [language, setLanguage] = useState(initialLocale);
 
   const locales = ["en", "kk", "ru"] as const;
@@ -21,11 +20,17 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
   const router = useRouter();
   const t = useTranslations("Navbar");
 
+  function isLocale(locale: string): locale is (typeof locales)[number] {
+    return locales.includes(locale as (typeof locales)[number]);
+  }
+
   const handleLanguageChange = (newLocale: string) => {
-    // Change it for UI
-    setLanguage(newLocale);
-    // Replace the URL with the new locale without changing the pathname
-    router.replace(pathname, { locale: newLocale });
+    if (isLocale(newLocale)) {
+      // Change it for UI
+      setLanguage(newLocale);
+      // Replace the URL with the new locale without changing the pathname
+      router.replace(pathname, { locale: newLocale });
+    }
   };
 
   useEffect(() => {
@@ -131,13 +136,6 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
               >
                 Create Prompt
               </Link>
-              <Link
-                href="/#!"
-                className="dropdown_link"
-                onClick={() => setToggleDropdown(false)}
-              >
-                Create Prompt
-              </Link>
             </div>
           )}
         </div>
@@ -175,7 +173,9 @@ export default function Navbar({ locale: initialLocale }: { locale: string }) {
         </div>
 
         {/* SECOND HEADER TITLES */}
-        <div className={`${styles.desktopMenu} md:items-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm`}>
+        <div
+          className={`${styles.desktopMenu} md:items-center gap-2 lg:gap-6 w-full bg-white text-black text-xs lg:text-sm`}
+        >
           {/* Using `md:` prefix to apply styles for medium screens and up */}
           <div className="p-2 font-light hidden md:block">
             <p className="text-sm font-light">{t("about_science")}</p>
