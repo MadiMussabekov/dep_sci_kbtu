@@ -45,18 +45,20 @@ export default function RootLayout({
       </head>
       <body>
         {/* Wrap it because it can't be turned into server side component */}
-        <NextIntlClientProvider messages={pick(messages, "Navbar")}>
-          <Navbar locale={locale} />
-        </NextIntlClientProvider>
-        <main
-          className={cn("min-h-screen bg-background font-sans antialiased")}
-        >
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </main>
 
-        <Footer />
+        {/* <NextIntlClientProvider messages={pick(messages, "Navbar")}> */}
+        <NextIntlClientProvider messages={messages}>
+          <Navbar locale={locale} />
+          <main
+            className={cn("min-h-screen bg-background font-sans antialiased")}
+          >
+            {/* <NextIntlClientProvider locale={locale} messages={messages}> */}
+            {children}
+            {/* </NextIntlClientProvider> */}
+          </main>
+
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
